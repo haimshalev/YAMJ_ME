@@ -1,25 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace YAMJ_ME
 {
     /// <summary>
     /// Interaction logic for MainPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class MainPage
     {
         public MainPage()
         {
@@ -30,7 +19,7 @@ namespace YAMJ_ME
         private void Run_YAMJ_Click(object sender, RoutedEventArgs e)
         {
             //Get the YAMJ path from configuration
-            YAMJData data = YAMJData.GetConfiguration();
+            var data = YAMJData.GetConfiguration();
 
             //Start the process , if cannot show error message 
             if (!StartProcess(data.YamjPath))
@@ -43,7 +32,7 @@ namespace YAMJ_ME
         private void Run_YAMJ__Config_Click(object sender, RoutedEventArgs e)
         {
             //Get the YAMJ path from configuration
-            YAMJData data = YAMJData.GetConfiguration();
+            var data = YAMJData.GetConfiguration();
 
             //Start the process , if cannot show error message 
             if (!StartProcess(data.ConfigToolPath))
@@ -57,10 +46,11 @@ namespace YAMJ_ME
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
             //Create a new settings page
-            Settings settingsPage = new Settings();
+            var settingsPage = new Settings();
 
             //Navigate to the settings page using the navigation service
-            this.NavigationService.Navigate(settingsPage);
+            NavigationService navigationService = NavigationService;
+            if (navigationService != null) navigationService.Navigate(settingsPage);
         }
 
         //Try to start a process
