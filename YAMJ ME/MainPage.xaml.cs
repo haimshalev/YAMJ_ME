@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Windows;
-using System.Windows.Navigation;
-
+﻿using System.Windows;
 
 namespace YAMJ_ME
 {
@@ -22,7 +19,7 @@ namespace YAMJ_ME
             var data = YAMJData.GetConfiguration();
 
             //Start the process , if cannot show error message 
-            if (!StartProcess(data.YamjPath))
+            if (!YAMJData.StartProcess(data.YamjPath))
             {
                 Run_YAMJ.Content = Constants.InvalidPathMessage;
             }
@@ -35,7 +32,7 @@ namespace YAMJ_ME
             var data = YAMJData.GetConfiguration();
 
             //Start the process , if cannot show error message 
-            if (!StartProcess(data.ConfigToolPath))
+            if (!YAMJData.StartProcess(data.ConfigToolPath))
             {
                 Run_Yamj_Config.Content = Constants.InvalidPathMessage;
             }
@@ -49,23 +46,7 @@ namespace YAMJ_ME
             var settingsPage = new Settings();
 
             //Navigate to the settings page using the navigation service
-            NavigationService navigationService = NavigationService;
-            if (navigationService != null) navigationService.Navigate(settingsPage);
-        }
-
-        //Try to start a process
-        private bool StartProcess(string path)
-        {
-            //if the config tool path initialized
-            if (path != null)
-            {
-                //Run the Yamj cmd process which creates the video library in the configured location
-                Process.Start(path);
-                return true;
-            }
-
-            //invalid path 
-            return false;
+            if (NavigationService != null) NavigationService.Navigate(settingsPage);
         }
     }
 }

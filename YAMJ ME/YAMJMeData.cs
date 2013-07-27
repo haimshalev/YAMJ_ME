@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -17,6 +18,7 @@ namespace YAMJ_ME
         public String YamjPath { get; set; }
         public String ConfigToolPath { get; set; }
 
+        //Create a YAMJData object from the configuration
         public static YAMJData GetConfiguration()
         {
             //Create a new data object
@@ -40,6 +42,7 @@ namespace YAMJ_ME
             return data;
         }
 
+        //Serialize the data to the configuration file
         public bool SetConfiguration()
         {
             // Write to XML
@@ -52,5 +55,24 @@ namespace YAMJ_ME
             return true;
         }
 
+        //Try to start a process
+        public static bool StartProcess(string path)
+        {
+            //if the config tool path initialized
+            try
+            {
+                //Run the Yamj cmd process which creates the video library in the configured location
+                Process.Start(path);
+            }
+            catch (Exception)
+            {
+                //invalid path 
+                return false;
+            }
+
+            //Process started succefully
+            return true;
+
+        }
     }
 }
