@@ -15,11 +15,8 @@ namespace YAMJ_ME
         //Run the YAMJ.cmd file
         private void Run_YAMJ_Click(object sender, RoutedEventArgs e)
         {
-            //Get the YAMJ path from configuration
-            var yamjMe = new YAMJMe();
-
             //Start the process , if cannot show error message 
-            if (!YAMJMe.StartProcess(yamjMe.YamjPath))
+            if (!YAMJMe.StartProcess(new YAMJMe().YamjPath))
             {
                 Run_YAMJ.Content = Constants.InvalidPathMessage;
             }
@@ -28,11 +25,8 @@ namespace YAMJ_ME
         //Run the YAMJ configuration tool
         private void Run_YAMJ__Config_Click(object sender, RoutedEventArgs e)
         {
-            //Get the YAMJ path from configuration
-            var yamjMe = new YAMJMe();
-
             //Start the process , if cannot show error message 
-            if (!YAMJMe.StartProcess(yamjMe.ConfigToolPath))
+            if (!YAMJMe.StartProcess(new YAMJMe().ConfigToolPath))
             {
                 Run_Yamj_Config.Content = Constants.InvalidPathMessage;
             }
@@ -42,11 +36,8 @@ namespace YAMJ_ME
         //Navigate to the settings page
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            //Create a new settings page
-            var settingsPage = new Settings();
-
-            //Navigate to the settings page using the navigation service
-            if (NavigationService != null) NavigationService.Navigate(settingsPage);
+            //Navigate to a settings page using the navigation service
+            if (NavigationService != null) NavigationService.Navigate(new Settings());
         }
     }
 }
