@@ -11,6 +11,11 @@
         <Label Content="Run And Configure Your Yamj Every Time" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Foreground="#FF5599D5"/>
         <Button x:Name="Run_YAMJ" Content="Run_YAMJ" HorizontalAlignment="Left" Margin="7,108,0,0" VerticalAlignment="Top" Width="218" Height="43" ToolTip="Run the selected YAMJ cmd file and creates the video library" FontSize="24" Foreground="#FFE2D0D0" OpacityMask="#FF40348B" Click="Run_YAMJ_Click" Background="{DynamicResource ButtonBackground}"/>
         <Button x:Name="Run_Yamj_Config" Content="Run_YAMJ Config" HorizontalAlignment="Left" Margin="6,159,0,0" VerticalAlignment="Top" Width="218" Height="43" ToolTip="Run's the YAMJ configuration tool" FontSize="24" Foreground="#FFE2D0D0" OpacityMask="#FF40348B" Click="Run_YAMJ__Config_Click" Background="{DynamicResource ButtonBackground}"/>
-        <Button x:Name="Settings" Content="Settings" HorizontalAlignment="Left" Margin="6,211,0,0" VerticalAlignment="Top" Width="218" Height="43" ToolTip="Set the executions path" FontSize="24" Foreground="#FFE2D0D0" OpacityMask="#FF40348B" Click="Settings_Click" Background="{DynamicResource ButtonBackground}"/>
+        <Button x:Name="Settings"  HorizontalAlignment="Left" Margin="6,211,0,0" VerticalAlignment="Top" Width="218" Height="43" ToolTip="Set the executions path" FontSize="24" Foreground="#FFE2D0D0" OpacityMask="#FF40348B" Click="Settings_Click" Background="{DynamicResource ButtonBackground}">
+            <Grid>
+                <Image Margin="-62,0,84,0" Source ="Settings.png"/>
+                <Label Margin="2,-2,-77,0" Foreground="White" Content="Settings" />
+            </Grid>
+        </Button>
     </Grid>
 </Page>

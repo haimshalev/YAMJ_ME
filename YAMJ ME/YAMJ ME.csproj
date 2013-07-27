@@ -118,6 +118,12 @@
   <ItemGroup>
     <Resource Include="yamj.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="YAMJLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Settings.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
