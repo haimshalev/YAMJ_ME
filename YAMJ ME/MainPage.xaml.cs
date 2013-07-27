@@ -16,10 +16,10 @@ namespace YAMJ_ME
         private void Run_YAMJ_Click(object sender, RoutedEventArgs e)
         {
             //Get the YAMJ path from configuration
-            var data = YAMJData.GetConfiguration();
+            var yamjMe = new YAMJMe();
 
             //Start the process , if cannot show error message 
-            if (!YAMJData.StartProcess(data.YamjPath))
+            if (!YAMJMe.StartProcess(yamjMe.YamjPath))
             {
                 Run_YAMJ.Content = Constants.InvalidPathMessage;
             }
@@ -29,10 +29,10 @@ namespace YAMJ_ME
         private void Run_YAMJ__Config_Click(object sender, RoutedEventArgs e)
         {
             //Get the YAMJ path from configuration
-            var data = YAMJData.GetConfiguration();
+            var yamjMe = new YAMJMe();
 
             //Start the process , if cannot show error message 
-            if (!YAMJData.StartProcess(data.ConfigToolPath))
+            if (!YAMJMe.StartProcess(yamjMe.ConfigToolPath))
             {
                 Run_Yamj_Config.Content = Constants.InvalidPathMessage;
             }

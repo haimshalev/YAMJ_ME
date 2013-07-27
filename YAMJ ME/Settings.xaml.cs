@@ -23,13 +23,10 @@ namespace YAMJ_ME
             if (openFileDialog.ShowDialog() != true) return;
             
             //Read the configuration 
-            var data = YAMJData.GetConfiguration();
-
-            //Update the data object
-            data.YamjPath = openFileDialog.FileName;
+            var yamjMe = new YAMJMe {YamjPath = openFileDialog.FileName};
 
             //Update the configuration file
-            data.SetConfiguration();
+            yamjMe.SetConfiguration();
         }
 
         private void Set_Config_tool_file_Click(object sender, RoutedEventArgs e)
@@ -39,14 +36,12 @@ namespace YAMJ_ME
 
             //open the file dialog , if the user not selected a file exit
             if (openFileDialog.ShowDialog() != true) return;
+            
             //Read the configuration 
-            var data = YAMJData.GetConfiguration();
-
-            //Update the data object
-            data.ConfigToolPath = openFileDialog.FileName;
+            var yamjMe = new YAMJMe {ConfigToolPath = openFileDialog.FileName};
 
             //Update the configuration file
-            data.SetConfiguration();
+            yamjMe.SetConfiguration();
         }
     }
 }
